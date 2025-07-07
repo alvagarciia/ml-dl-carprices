@@ -35,7 +35,28 @@ Ensure Python 3.10 is installed. It's recommended to use a virtual environment (
    cd car-price-prediction
    ```
 
-## 🧪 Model Training Summary
+2. Install dependencies:
+
+    ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the Streamlit app:
+
+    **Standard usage:**
+    ```bash
+   streamlit run app.py
+   ```
+
+    **If you're using WSL (Windows Subsystem for Linux):**
+    ```bash
+   streamlit run app.py --server.headless true --server.enableCORS false --server.address=0.0.0.0
+   ```
+   This allows you to access the app from your Windows browser when running Streamlit inside WSL.
+
+4. Open the provided local URL in your browser to access the app. 
+
+## 🧪 Model Training
 
 The ML and DL models were trained on a Kaggle dataset of used cars. Training included:
 
@@ -48,7 +69,6 @@ The ML and DL models were trained on a Kaggle dataset of used cars. Training inc
 ## ⚠️ Notes
 
 - **Version Warning**: The saved models were trained using `scikit-learn==1.2.2`. Loading them in newer versions (e.g., 1.7.0) may show warnings. This is acceptable for portfolio purposes but should be addressed for production use.
-- **XGBoost Notice**: For best practice, XGBoost models should be saved/loaded using `save_model()` and `load_model()` methods to avoid version conflicts.
 - **Dataset File**: The original dataset used for training is not required to use the app, as the models are already trained and serialized.
 
 ## 📸 Screenshot
@@ -56,3 +76,6 @@ The ML and DL models were trained on a Kaggle dataset of used cars. Training inc
 > _Optional: Add a screenshot of your Streamlit app here_  
 > Example:
 
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
