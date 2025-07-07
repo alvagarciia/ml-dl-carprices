@@ -25,8 +25,6 @@ from tensorflow.keras import layers
 from tensorflow.keras import callbacks
 ########################################################################
 
-
-
 ### Setup plotting (used when exploring models)
 # plt.style.use('seaborn-whitegrid')
 # # Set Matplotlib defaults
@@ -34,7 +32,6 @@ from tensorflow.keras import callbacks
 # plt.rc('axes', labelweight='bold', labelsize='large',
 #        titleweight='bold', titlesize=18, titlepad=10)
 # plt.rc('animation', html='html5')
-
 
 
 # Get data
@@ -354,76 +351,12 @@ history = myDL.fit(
 ########################################################################
 
 
-### Save model:
-myDL.save("dl_model.keras")
+### Save Preprocessor and Model:
+import joblib
+joblib.dump(preprocessor, "dl_preprocessor.joblib") # Save preprocessor 
+
+myDL.save("dl_model.keras") # Save model
 
 ### To load:
 # model = keras.models.load_model("dl_model.keras")
 # prediction = model.predict(raw_df)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Trying Model
-# Attempt 1:
-single_input = pd.DataFrame([{
-    "milage": 7008.0,
-    "accident": "Unknown",
-    "clean_title": "Missing",
-    "brand_model": "Porsche 911 Carrera S",
-    "car_age": 3,
-    "engine_hp": 443.0,
-    "engine_liter": 3.0,
-    "engine_cyl": 6.0,
-    "fuel_type": "Gasoline",
-    "trans_type": "auto",
-    "trans_spd": 8.0
-}])
-
-
-single_input = preprocessor.transform(single_input)
-print(single_input.shape[1])
-# Predict (your model expects log price, so we apply expm1 to get the actual price)
-price_pred = myDL.predict(single_input)
-
-print(f"Predicted price: ${int(price_pred[0]):,.0f}")
-# Price: 151900.0
-# Predicted: 143,043 (mae), 109,043 (mape)
-
-# Attempt 2:
-single_input = pd.DataFrame([{
-    "milage": 51000.0,
-    "accident": "At least 1 accident or damage reported",
-    "clean_title": "Yes",
-    "brand_model": "Ford Utility Police Interceptor Base",
-    "car_age": 5,
-    "engine_hp": 300.0,
-    "engine_liter": 4.0,
-    "engine_cyl": 6.0,
-    "fuel_type": "E85 Flex Fuel",
-    "trans_type": "auto",
-    "trans_spd": 6.0
-}])
-
-
-single_input = preprocessor.transform(single_input)
-print(single_input.shape[1])
-# Predict (your model expects log price, so we apply expm1 to get the actual price)
-price_pred = myDL.predict(single_input)
-
-print(f"Predicted price: ${int(price_pred[0]):,.0f}")
-# Price: 10,300.0
-# Predicted: 24,154 (mae), 24,222 (mape)
