@@ -1,14 +1,19 @@
+# Author: Alvaro Garcia
+# Description: Streamlit App File of ML/DL Project 
+# Date: July 7th, 2025
+#####################################################
+
 import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
 import keras
 from scripts.ml_script import KFoldTargetEncoder
-from sklearn.ensemble import RandomForestRegressor
+
 
 # To deal with streamlit sessions and states
 if 'clicked' not in st.session_state:
-    st.session_state.clicked = {1:False, 2:False, 3:False}
+    st.session_state.clicked = {1:False, 2:False, 3:False, 4:False}
 
 def clicked(button):
     st.session_state.clicked[button] = True
@@ -16,30 +21,18 @@ def clicked(button):
         st.session_state.clicked[2] = False
     elif button == 2 and st.session_state.clicked[1] == True:
         st.session_state.clicked[1] = False
+#####
 
 
-st.title('Used Car Price Predictor')
-
-st.markdown('##### Goal: Compare ML and DL models to predict used car prices based on real-world vehicle data.')
-
-st.caption('Fill out the following information to get your prediction. Leave blank if unknown.')
+### Header
 input_data = None
 data_entered = False
 m = 'a'
-# data_entered = True
-input_data = pd.DataFrame([{
-    "milage": 7008.0,
-    "accident": "Unknown",
-    "clean_title": "Missing",
-    "brand_model": "Porsche 911 Carrera S",
-    "car_age": 3,
-    "engine_hp": 443.0,
-    "engine_liter": 3.0,
-    "engine_cyl": 6.0,
-    "fuel_type": "Gasoline",
-    "trans_type": "auto",
-    "trans_spd": 8.0
-}])
+
+st.title('Used Car Price Predictor')
+st.markdown('##### Goal: Compare ML and DL models to predict used car prices based on real-world vehicle data.')
+
+st.caption('Fill out the following information to get your prediction. Leave blank if unknown.')
 with st.expander("Your Car Info Goes Here"):
     brand = (st.text_input("Car Brand")) or None
     model = (st.text_input("Car Model")) or None
@@ -81,9 +74,31 @@ with st.expander("Your Car Info Goes Here"):
             "trans_type": trans_type
         }])
         data_entered = True
-        # m = m
+
+st.caption('Or click below to try a predetermined test case.')
+st.button('Test Case', on_click = clicked, args=[4])
+if st.session_state.clicked[4]:
+    input_data = pd.DataFrame([{
+        "milage": 7008.0,
+        "accident": "Unknown",
+        "clean_title": "Missing",
+        "brand_model": "Porsche 911 Carrera S",
+        "car_age": 3,
+        "engine_hp": 443.0,
+        "engine_liter": 3.0,
+        "engine_cyl": 6.0,
+        "fuel_type": "Gasoline",
+        "trans_type": "auto",
+        "trans_spd": 8.0
+    }])
+    data_entered = True
+
+st.divider()
+######
 
 
+
+### Sidebar
 with st.sidebar:
     st.header('Toggle Model')
     st.button('ML XGB Model', on_click = clicked, args=[1])
@@ -92,16 +107,18 @@ with st.sidebar:
     st.button('DL Keras Model', on_click = clicked, args=[2])
     if st.session_state.clicked[2]:
         m = 'dl'
+######
 
-st.divider()
 
-# No Model Selected
+
+### Case: No Model Selected
 if m == 'a':
-    st.markdown('##### Select a model in the sidebar to get started!')
+    if data_entered:
+        st.markdown('##### Select a model using the sidebar to see the predictions!')
+######
 
 
-
-# ML Model
+### Case: ML Model Selected
 if m == 'ml':
     st.header('Machine Learning: XGB Model')
     if data_entered:
@@ -112,11 +129,10 @@ if m == 'ml':
         res = np.expm1(pred[0])
         st.subheader("Prediction:")
         st.success(f"Estimated price (as of 01/2025): **${res:,.0f}**")
+######
 
 
-
-
-# DL Model
+### Case: DL Model Selected
 if m == 'dl':
     st.header('Deep Learning: Keras Model')
     if data_entered:
@@ -129,3 +145,4 @@ if m == 'dl':
         # res = np.expm1(pred[0])
         st.subheader("Prediction:")
         st.success(f"Estimated price (as of 01/2025): **${pred[0][0]:,.0f}**")
+######

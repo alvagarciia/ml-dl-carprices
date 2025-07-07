@@ -1,3 +1,8 @@
+# Author: Alvaro Garcia
+# Description: Script of DL Model for ML/DL Project 
+# Date: June 29th, 2025
+#####################################################
+
 # Using data from:
 # https://www.kaggle.com/datasets/taeefnajib/used-car-price-prediction-dataset/data
 
