@@ -1,0 +1,8 @@
+streamlit
+numpy
+pandas
+joblib
+xgboost
+tensorflow
+category_encoders
+scikit-learn==1.2.2
