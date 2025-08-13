@@ -22,7 +22,6 @@ from sklearn.metrics import mean_absolute_error
 
 from tensorflow import keras
 from tensorflow.keras import layers
-from tensorflow.keras import callbacks
 ########################################################################
 
 ### Setup plotting (used when exploring models)

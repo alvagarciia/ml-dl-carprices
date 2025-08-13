@@ -15,14 +15,9 @@ import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import re
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.linear_model import LinearRegression
 
 from sklearn.metrics import make_scorer, mean_absolute_error
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold, cross_val_score
 
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
