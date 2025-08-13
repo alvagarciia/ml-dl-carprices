@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment folders
+.env
+.venv
+env/
+venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Mac OS
+.DS_Store
+
+# Logs
+*.log
