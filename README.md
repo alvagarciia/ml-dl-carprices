@@ -62,7 +62,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Car Prices Showcase](./media/carprices-show.png)
+![Car Prices Showcase ML](./media/carprice-ML-demo.gif)
+![Car Prices Showcase DL](./media/carprice-DL-demo.gif)
 
 This web application predicts the market price of used cars based on various features such as mileage, brand, model, fuel type, and more. Built using Python and Streamlit, the app leverages machine learning models to provide pricing estimates, assisting both buyers and sellers in making informed decisions.
 
@@ -215,7 +216,8 @@ Project Link: [https://github.com/alvagarciia/ml-dl-carprices](https://github.co
 https://www.markdownguide.org/basic-syntax/#reference-style-links 
 https://simpleicons.org/
 -->
-[license-shield]: https://img.shields.io/github/license/alvagarciia/ml-dl-carprices.svg?style=for-the-badge
+[license-s
+hield]: https://img.shields.io/github/license/alvagarciia/ml-dl-carprices.svg?style=for-the-badge
 [license-url]: https://github.com/alvagarciia/ml-dl-carprices/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alvaro-garciam
