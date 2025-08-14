@@ -45,12 +45,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#usage">Usage</a>
-      <ul>
-        <li><a href="#demo">Demo</a></li>
-      </ul>
-    </li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -67,6 +62,10 @@
 
 This web application predicts the market price of used cars based on various features such as mileage, brand, model, fuel type, and more. Built using Python and Streamlit, the app leverages machine learning models to provide pricing estimates, assisting both buyers and sellers in making informed decisions.
 
+My personal objective with this project was to put in practice everything I learnt for working with Machine Learning and Deep Learning models by using it to create a piece of software. In addition, I aimed to experiment creating this app using Streamlit, which I hadn't used prior to this. 
+
+Both models were trained from scratch using a Kaggle [dataset](https://www.kaggle.com/datasets/taeefnajib/used-car-price-prediction-dataset/data) uploaded by Taeef Najib, made up of a collection of automotive information extracted from the popular automotive marketplace website, https://www.cars.com. This dataset comprises 4,009 data points, each representing a unique vehicle listing, and includes nine distinct features providing valuable insights into the world of automobiles.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -75,7 +74,7 @@ This web application predicts the market price of used cars based on various fea
 - User input form for entering car specifications
 - Pre-trained ML and DL models for price prediction
 - Built-in preprocessing (encoding, imputation, etc.)
-- Serialized models using `.joblib` and `.keras` files
+- Works from serialized models using `.joblib` and `.keras` files
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,18 +155,11 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Once started, users can visit the app and begin chatting with Noema. No signup required. Each new page load starts a fresh session.
+Once ran on Streamlit, users have the option of entering their own car data or using a pre-defined test case. For each option, they also have the option of getting a prediction using the Machine Learning model or the Deep Learning model. 
 
-Noema will only answer to problems that the user shares and ask questions back so that the user can do introspection. Whenever the user shows signs of being satisfied with the conversation, Noema will offer to write a short summary of the chat.
+After selecting either of the options, the respective model should display the prediction on the website.
 
-The prompt engineering made it so that sending more messages and increasing the conversation doesn't increase the cost exponentially. However, inputting longer texts WILL use up more tokens. 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-### Demo
-
-![Eunoia Demo](./media/eunoia-demo.gif)
+The repo also contains the scripts used to train each model inside the `scripts` folder, so that anyone can take a look at how these models were trained. Moreover, the `models` folder contains the trained files for both the ML and DL models.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
