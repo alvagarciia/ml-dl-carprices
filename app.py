@@ -29,6 +29,7 @@ input_data = None
 data_entered = False
 m = 'a'
 
+
 st.title('Used Car Price Predictor')
 st.markdown('##### Goal: Compare ML and DL models to predict used car prices based on real-world vehicle data.')
 
@@ -74,9 +75,11 @@ with st.expander("Your Car Info Goes Here"):
             "trans_type": trans_type
         }])
         data_entered = True
+        test_case = False
 
 st.caption('Or click below to try a predetermined test case.')
 st.button('Test Case', on_click = clicked, args=[4])
+st.caption('^ Porsche 911 Carrera S, valued at $151,900')
 if st.session_state.clicked[4]:
     input_data = pd.DataFrame([{
         "milage": 7008.0,
@@ -92,6 +95,8 @@ if st.session_state.clicked[4]:
         "trans_spd": 8.0
     }])
     data_entered = True
+    test_case = True
+    
 
 st.divider()
 ######
@@ -129,6 +134,8 @@ if m == 'ml':
         res = np.expm1(pred[0])
         st.subheader("Prediction:")
         st.success(f"Estimated price (as of 01/2025): **${res:,.0f}**")
+        if test_case:
+            st.caption(f"Percentage Error: **{((151900 - res) / res * 100):,.1f}%**")
 ######
 
 
@@ -145,4 +152,6 @@ if m == 'dl':
         # res = np.expm1(pred[0])
         st.subheader("Prediction:")
         st.success(f"Estimated price (as of 01/2025): **${pred[0][0]:,.0f}**")
+        if test_case:
+            st.caption(f"Percentage Error: **{((151900 - pred[0][0]) / pred[0][0] * 100):,.0f}%**")
 ######

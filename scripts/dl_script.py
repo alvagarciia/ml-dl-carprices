@@ -336,7 +336,6 @@ history = myDL.fit(
     epochs=EPOCHS,
     callbacks=[early_stopping],
     verbose=1,
-    # shuffle=False
 )
 
 ### Used to understand different models

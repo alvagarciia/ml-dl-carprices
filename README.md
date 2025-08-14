@@ -82,11 +82,11 @@ This web application predicts the market price of used cars based on various fea
 
 ### Built With
 
-* [![Pandas][pandas]](https://github.com/pandas-dev/pandas)
-* [![NumPy][numpy]](https://github.com/numpy/numpy)
-* [![Scikit-Learn][scikit-learn]](https://github.com/scikit-learn/scikit-learn)
-* [![Tensorflow][tensorflow]](https://github.com/tensorflow/tensorflow)
-* [![Streamlit][streamlit]](https://github.com/streamlit/streamlit)
+[![Pandas][pandas]](https://github.com/pandas-dev/pandas)
+[![NumPy][numpy]](https://github.com/numpy/numpy)
+[![Scikit-Learn][scikit-learn]](https://github.com/scikit-learn/scikit-learn)
+[![Tensorflow][tensorflow]](https://github.com/tensorflow/tensorflow)
+[![Streamlit][streamlit]](https://github.com/streamlit/streamlit)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
